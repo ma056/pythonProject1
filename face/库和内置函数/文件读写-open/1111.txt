@@ -1,0 +1,4 @@
+[global]
+fsid = 1fff
+mon_me = node171,node170,node172
+mon_host = 172.16.30.171,172.16.30.170,172.16.30.169

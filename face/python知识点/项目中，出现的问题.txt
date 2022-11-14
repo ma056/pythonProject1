@@ -1,0 +1,348 @@
+1.df1 = pd.read_excel('place_clean.xlsx', 'Sheet1')
+   a = df1['列的头'].values        #a为获取到那一列的值，中间可能会有省略号
+   b =a.tolist()                           #b为将值将转化为列表的形式  ，这样省略号就会解决
+
+无标题名的取列值，且放在一个组中
+a = [x[0] for idx, x in df.iterrows()]
+
+重点：   合并一个excel中的多列生成新的一列date
+import pandas as pd 
+df = pd.read_excel("test.xlsx")
+df['date'] = df['year'].map(str)+"/"+df['month'].map(str)+"/"+df['day'].map(str)
+
+
+2. print(set([1,2,6,8]) - set([2,8]))         #解决爬虫时，第一次的数据已经提交，第二次数据却包含第一次的  表A减去表B的数据
+
+3.读写文件，pycharm中没有乱码，但是文件打开乱码了，用encoding='utf-8-sig'处理
+read_data.to_csv('data.csv', index=False, encoding='utf-8-sig')
+
+4.字典转化为列表
+    # print(result)     # 去除false的frames
+    # a = {'a': 1, 'b': 2, 'c': 3}
+    # # 字典中的key转换为列表
+    # key_value = list(a.keys())
+    # print('字典中的key转换为列表：', key_value)
+    # # 字典中的value转换为列表
+    # value_list = list(a.values())
+    # print('字典中的value转换为列表：', value_list)
+
+5.几个几个读取列表中的元素
+	a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+	n = 4
+	for b in [a[i:i + n] for i in range(0, len(a), n)]:
+    		print(b)
+
+6.enumerate主要用法索引下标
+（1）#枚举字符串中的元素
+	for i, j in enumerate('abcd')
+	print i,j
+输出：(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'）
+（2）#枚举列表中的元素
+	for i, j in  enumerate(['Python', 'Greate'])
+	print i,j
+输出：[(0, 'Python'), (1, 'Greate')]
+（3）#枚举字典中的元素
+	d = {'a':97, 'b':98, 'c':99}
+	for i, j in enumerate(d.items())
+   	print i,j
+输出：[(0, ('a', 97)), (1, ('b', 98)), (2, ('c', 99))]
+（4）#枚举range对象中的元素
+	for index, value in enumerate(range(10, 15)):
+	print((index, value), end=' ')
+输出：(0, 10) (1, 11) (2, 12) (3, 13) (4, 14) 
+（5）#可以指定枚举时索引的起始值，这并不常用
+	for i, j in  enumerate('abcd', 5)
+	print i,j
+输出：[(5, 'a'), (6, 'b'), (7, 'c'), (8, 'd')]
+
+
+iterrows:迭代
+pf = pd.read_excel("规范测试题2.xlsx")
+for index, row in pf.iterrows():
+    print(index,row['Category'])
+
+6.读写json
+（1）读取json的url
+   一、 
+	json_url = single_row['annotation']
+	json_data = requests.get(json_url).json（）
+   二、
+    with open('test.json', 'r', encoding='utf-8')as fp:
+	 # 读取所有行 每行会是一个字符串
+    	json_data = json.load(fp)
+ 	# 将josn字符串转化为dict字典
+    	read_frames = json_data['frames']
+（2）写入json
+    with open(f"../三十一组/1.json", "w") as f:
+    f.write(json.dumps(写入的数据, ensure_ascii=False))  这个才是对的
+
+    with open('test.json', 'w') as f:
+     json.dump(data, f)
+
+7.f"state{state_num}"   拼接变量个常量
+   实例：  
+   print(f'从1加到{n}的结果是{sum}')
+   print('从1加到%d结果是：%d' % (n, sum))  # 格式化输出   %d是整数占位，%s字符串站位
+
+8.两个列表拼接起来  zip函数：将可迭代对象（列表）作为参数，参数打包成元组，返回list列表
+   data = list(zip(列表1，列表2))
+
+9.data = json.loads(json数据)
+  data1 = jsonpath.jsonpath(data,"$..这里是标题头")  #从源码中提取符合要求的代码
+
+10.df = pd.read_csv(r'Bosch 自动驾驶试标数据-30张图片.csv', header=None)
+     a = [x[0] for idx, x in df.iterrows()]
+
+
+11.(1)断言针对的是程序员的错误。(2)对于针对用户的错误，需要抛出异常，而不是断言。（输入无效数据等）
+(1)格式为：assert 条件，当条件为False时显示的字符串      
+assert args.output_file.endswith(".xlsx") == True, "请输入.xlsx为结尾的文件名"
+(2)即格式为：raise 表达式('出错信息字符串')
+raise Exception('This is the error message.')
+
+12.path = input("输入路径：").strip()  # 由用户指定文件路径
+
+13.pyinstaller打包为exe
+
+14.lambda函数
+（1）def与lambda区别：
+先用def来定义函数，代码如下
+def sq(x):
+    return x*x
+map(sq,[y for y in range(10)]
+再用lambda函数来编写代码
+map(lambda x: x*x,[y for y in range(10)])
+
+
+filter函数：filter(function, iterable)
+function：判断函数
+iterable：可迭代对象
+
+lambda函数：
+def sum(x,y):
+       return x+y
+等同于：
+sum = lambda x,y :x+y
+lambda 参数：表达式     lambda 函数可接受任意数量的参数，但只能有一个表达式
+
+
+
+（2）map、filter、sorted、reduce等一些Python内置函数使用
+filter:
+fliter(lambda x:x%3==0,[1,2,3,4,5,6])
+sorted:
+a=[('b',3),('a',2),('d',4),('c',1)]
+sorted(a,key=lambda x:x[0])
+输出：安第一个元素排列x:x[0]
+[('a',2),('b',3),('c',1),('d',4)]
+reduce:
+from functools import reduce
+print(reduce(lambda a,b:'{},{}'.format(a,b),[1,2,3,4,5,6,7,8,9]))
+
+15.计算表格中某一行不同文件的个数
+ file_sum = df_detail["file_type"].value_counts()
+重置索引名称
+    df_sum = file_sum.reset_index()  # reset_index()重置索引
+    df_sum.columns = ["file_suffix", 'file_count']
+
+16.对表格进行排序
+ df.sort_values(by=['name', 'id'], ascending=[False, True])
+
+
+17.pandas对df数据的列进行处理，
+wendu 这一列数据是 3℃     5℃     8℃   dtype类型是str,目前要把str转化为int 而且要去掉℃
+
+df.loc[:, "wendu"] = df["wendu"].str.replace("℃","").astype("int32")
+
+18.列表生成式
+[表达式 for 迭代变量 in 可迭代对象 [if 条件表达式] ]
+等价于
+
+x = []
+for 迭代变量 in 可迭代对象 :
+    if 条件表达式:
+        x.append()    #这一行是表达式
+#x 就是上面那个生成的列表
+
+
+eg:ll = ['123.jpg','222.jpg']
+[v.split(".")[0] for v in ll]
+['123', '222']
+eg:带判断的应用
+fn1 = lambda a, b: a if a > b else b
+print(fn1(1000, 500))
+eg:列表中字典的排序
+students = [{'name': 'TOM', 'age': 20},{'name': 'ROSE', 'age': 19},{'name': 'Jack', 'age': 22}]
+students.sort(key=lambda x: x['name'])  # 【sort修改的是原列表的数据】默认升序
+students.sort(key=lambda x: x['name'], reverse=True)    #reverse=true是降序
+
+19.新建文件夹不用判断
+ os.makedirs(type_path, exist_ok=True)
+
+20.这里的路径是需要含有文件名的 
+若是遇到新建文件夹的问题先把路径建好后，在os.path.join(路径,文件名)
+with open(路径，“wb”) as f
+	f.write(数据.content)
+
+21.切
+os.path.split
+fname,fename=os.path.split("E:/lpthw/zedshaw/ex19.py")  # 返回的是文件路径，和文件名
+split
+img_folder.split("/")[-4:]    效果：D：//a/b/c/d/e/f/1.jpg     切分后：c/d/e/f
+.join函数
+file_name = per_img.split(os.sep)[-5:-1]
+out_paths = os.path.join(output_folder, os.sep.join(file_name))
+
+例子：
+str_list = ['Python', 'Tab']
+a = ''
+print a.join(str_list)
+
+22.for i in range(5):
+...     print(i)  输出的是 0,1,2,3,4  切记只输出5个
+
+23.
+# for root, dirs, files in os.walk(r"D:\work\厉宇随机抽样\images\CGTN"):
+#     for name in files:
+#         print(os.path.join(root, name))   # root 是1.jpg前面所有的路径， name是1.jpg   files是每个文件夹下的所有文件的list
+#     for name in dirs:
+#         print(os.path.join(root, name))
+
+
+24.三元表达式
+java的三元表达式是这样
+b =  a > 1? "执行表达式1":"执行表达式2"
+
+在python中只有类似的替代办法
+如果a>b的结果为真，h="变量1",如果为假，h="变量2"
+h = "变量1" if a>b else "变量2"
+
+
+25.Python：dataframe读取以文本形式存储的数字
+ df = pd.read_excel(text_paths, converters={'ID': str})  关键是converters
+
+
+26.生成当前电脑的时间
+curr_time = datetime.datetime.now()
+time_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d %H:%M:%S')  # 获取系统当前时间，字符串型
+
+27。 将""字符串转化为变量   eval()转换会有点小问题，所以若要转变为变量的类型更好
+data_list = []
+for j in range(20):
+   data1 = sheet.cell(6, 4 + i).value  # 1  行列
+   data2 = sheet.cell(8, 4 + i).value  # 1  行列
+   data_list.append(eval(f'data{j + 1}'))
+
+
+
+28.uuid
+import uuid
+a = str(uuid.uuid4())
+print(a)
+
+
+29列表去重
+dup_email_list = list(set(email_list))
+dup_email_list.sort(key=email_list.index)
+
+30字典推导式
+list = raw_data["Annotation Worker Email"].values.tolist()
+email_dict = {e: {"a": []} for e in list}
+email_dict[single_row["Annotation Worker Email"]]["a"].append(single_row["a"])
+
+31.groupby()
+df_cankao = pd.read_excel(excel_path1, sheet_name="Query合集")
+a= df_cankao.groupby('功能点编号')    #这里是groupby对象
+print（a.mean()）# 这里可以看到groupby对象
+data_list = [] 
+for number_, number_df in a:
+   sentence_list = number_df['参考句'].values.tolist()
+   data_list.append(sentence_list)
+
+32.字典和xml格式转换
+xml_str = xmltodict.unparse(out_dic_tem, pretty=4)
+with open(f'./{file_name.replace(".jpg", ".xml")}',mode='w',encoding='utf-8') as f_xml:
+        f_xml.write(xml_str)
+
+
+33.df.fillna(10) 自动按10填充
+删除的方法
+将nan的行全部删除
+df.dropna()
+print(‘dropna’,df.dropna())#将带nan的行删除 axis=1删除列
+
+not_null_df = true_df.dropna(subset=['type', 'face', 'pose'])
+
+
+
+34：根据字典的key和另一个列表来对字典的values进行排序
+a = {"a":1,"b":3,"c":5}
+c = []
+b = ["c","a","b"] 
+for i in b:
+    aa = a[i]
+    c.append(aa)
+print(c)
+[5,1,3]
+
+
+35.quote()
+导入：from urllib.parse import quote
+传入参数类型：字符串（传递中文参数给URL）
+功能：将单个字符串编码转化为 %xx%xx 的形式
+加码：
+   from urllib.parse import quote
+   #  字符串编码转化，就不存在编码问题 需要解码
+   quote('坑爹')
+
+   输出：'%B1%E0%C2%EB%BF%D3%B5%F9'
+解码：
+   from urllib.parse import unquote
+   # 解码
+   print(unquote('%B1%E0%C2%EB%BF%D3%B5%F9'))  
+   坑爹
+
+
+
+36. a=“python”，a[: : -1]=？
+[a:b:c]
+a是起始元素位置索引，没写，默认为0（第一个）
+b是截止元素位置索引（不包括），没写，默认最后一个
+c是步长，如果是-1，意味从后往前，即从b到a
+
+
+37.获取图片url的尺寸
+from io import BytesIO
+from PIL import Image
+
+response = requests.get(base_url[frame_idx])
+image = Image.open(BytesIO(response.content), 'r')
+"width": image.size[0], "height": image.size[1]
+
+
+38.去除dataframe中某个值不想要的
+new_object = objects[~(objects['classIndex'].isin([14]))]
+这里是去除object中的classindex 为14的dataframe
+
+
+39.-- 将 1个分隔符 替换为 2个分隔符，然后用长度相减得到分隔符数
+-- 最后 +1 是为了取最后一部分内容
+select split_part(fs.cdn_url ,'-', length(replace(fs.cdn_url,'-','--')) - length(fs.cdn_url) + 1)
+from file_store fs 
+
+
+40.构建字典{e:[],e1:[]}
+from collections import defaultdict
+res_list = defaultdict(list)
+for res in ads['results']:
+    res_list[res['name'][0]].append(res)
+
+41如何使用索引来反转Python中的字符串?
+    1、str="hello"
+        print(str[::-1])
+    2、''.join(reversed('TURBO'))
+        输出：'OBRUT'
+
+
+
+
