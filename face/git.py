@@ -11,7 +11,6 @@ git config
 git config user.name
 git config user.email
 
-
 正常部署代码的步骤：
 1.查看有哪些文件发送变动
 git status
