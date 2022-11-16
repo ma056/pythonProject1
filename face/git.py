@@ -10,13 +10,24 @@ git config --global user.name "WenjingMa"
 git config
 git config user.name
 git config user.email
-git status
-git commit .
-https://blog.csdn.net/qq_41767905/article/details/122443837
-3.按键盘左上角"Esc"
-4.输入":wq",注意是冒号+wq,按回车键即可
-git push
 
+
+正常部署代码的步骤：
+1.查看有哪些文件发送变动
+git status
+2.新增文件
+git add .
+3.
+    第一种方法；
+        3.1git commit .
+        https://blog.csdn.net/qq_41767905/article/details/122443837
+        3.2按键盘左上角"Esc"
+        3.3输入":wq",注意是冒号+wq,按回车键即可
+    第二种方法：
+        git commit -m "commit message here"
+5.push文件
+git push
+6.输出git生成的密码
 
 
 git commit -m "备注内容"
