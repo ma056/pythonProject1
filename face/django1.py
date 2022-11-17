@@ -1,4 +1,8 @@
 '''
+https://blog.csdn.net/happygjcd/article/details/105316944
+'''
+
+'''
 
 1、Django 的生命周期？
     前端发起请求
