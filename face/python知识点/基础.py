@@ -542,3 +542,5 @@ def fab(max):
 
 for n in fab(5):
     print(n)
+import glob
+print(glob.glob('*'))
