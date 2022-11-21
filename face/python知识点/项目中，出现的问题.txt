@@ -344,5 +344,10 @@ for res in ads['results']:
         输出：'OBRUT'
 
 
-
-
+42.排序
+lst = [{'level': 19, 'star': 36, 'time': 1},
+       {'level': 20, 'star': 40, 'time': 2}]
+方法一：
+lst.sort(key=lambda k: (k.get('time', 0)))
+方法二：
+stu_sort = sorted(lst,key=lambda x:x["level"])
