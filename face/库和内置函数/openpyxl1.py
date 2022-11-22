@@ -56,7 +56,7 @@ wb = Workbook()
 ws1 = wb.create_sheet('用户信息表', 0)
 ws2 = wb.create_sheet('bank_info')
 wb.remove('bank_info')  # 删除表的方法一
-del wb('bank_info')  # 删除表的方法二
+# del wb('bank_info')  # 删除表的方法二
 # 更改ws1的名称
 ws1.title = 'user_info'
 # 修改子表背景颜色
