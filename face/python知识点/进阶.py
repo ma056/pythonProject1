@@ -414,7 +414,24 @@ csdn:https://blog.csdn.net/weixin_38819889/article/details/127251104
     可以看到运行结果中，确实是所有任务都完成了，主线程才打印出main。等待条件还可以设置为FIRST_COMPLETED，表示第一个任务完成就停止等待。
     
 '''
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
 
+
+# 参数times用来模拟网络请求的时间
+def get_html(times):
+    time.sleep(times)
+    print("get page {}s finished".format(times))
+    return times
+
+
+executor = ThreadPoolExecutor(max_workers=2)
+urls = [3, 2, 4]  # 并不是真的url
+all_task = [executor.submit(get_html, (url)) for url in urls]
+
+for future in as_completed(all_task):
+    data = future.result()  #这里的data是get_htmlreturn的值
+    print("in main: get page {}s success".format(data))
 '''
 1.yield from 可以简化for循环里的yield表达式
     def gene():
