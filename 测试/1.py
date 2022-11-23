@@ -63,4 +63,5 @@ def fun():
         lst.append(fun1)
     return lst
 r = fun()
+
 print(r)
