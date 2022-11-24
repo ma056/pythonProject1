@@ -434,6 +434,23 @@ for future in as_completed(all_task):
     data = future.result()  # 这里的data是get_htmlreturn的值
     print("in main: get page {}s success".format(data))
 
+# eg:和上面得区别就是map这个顺序        可以看到执行结果与上面的as_completed方法的结果不同，输出顺序和urls列表的顺序相同，就算2s的任务先执行完成，也会先打印出3s的任务先完成，再打印2s的任务完成。
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+
+def get_html(times):
+    time.sleep(times)
+    print("get page {}s finished".format(times))
+    return times
+
+
+executor = ThreadPoolExecutor(max_workers=2)
+urls = [3, 2, 4]  # 并不是真的url
+
+for data in executor.map(get_html, urls):
+    print("in main: get page {}s success".format(data))
+
 # eg:
 from multiprocessing import Pool
 
@@ -445,6 +462,8 @@ def f(x):
 if __name__ == '__main__':
     with Pool(5) as p:
         print(p.map(f, [1, 2, 3]))
+
+
 '''
 1.yield from 可以简化for循环里的yield表达式
     def gene():
