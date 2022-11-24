@@ -414,6 +414,7 @@ csdn:https://blog.csdn.net/weixin_38819889/article/details/127251104
     可以看到运行结果中，确实是所有任务都完成了，主线程才打印出main。等待条件还可以设置为FIRST_COMPLETED，表示第一个任务完成就停止等待。
     
 '''
+# eg:
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
@@ -430,8 +431,20 @@ urls = [3, 2, 4]  # 并不是真的url
 all_task = [executor.submit(get_html, (url)) for url in urls]
 
 for future in as_completed(all_task):
-    data = future.result()  #这里的data是get_htmlreturn的值
+    data = future.result()  # 这里的data是get_htmlreturn的值
     print("in main: get page {}s success".format(data))
+
+# eg:
+from multiprocessing import Pool
+
+
+def f(x):
+    return x * x
+
+
+if __name__ == '__main__':
+    with Pool(5) as p:
+        print(p.map(f, [1, 2, 3]))
 '''
 1.yield from 可以简化for循环里的yield表达式
     def gene():
@@ -519,7 +532,3 @@ for future in as_completed(all_task):
     ⑨把各个url以及其序列号index，传给url_list传入的值最终到达fetch函数中,url_list并不知道传入的是什么，同时url_list实例在yield from处暂停。直到fetch的一个实例处理完才进行赋值。
     ⑩关键的一步，ul把None传入url_list，传入的值最终到达fetch函数中，导致当前实例终止。然后继续创建下一个实例。如果没有ul.send(None)，那么fetch子生成器永远不会终止，因为ul.send()发送的值实际是在fetch实例中进行，委派生成器也永远不会在此激活，也就不会为l[key]赋值
 '''
-
-
-
-
