@@ -463,7 +463,22 @@ if __name__ == '__main__':
     with Pool(5) as p:
         print(p.map(f, [1, 2, 3]))
 
+# eg:
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from tqdm import tqdm #进度条
+def cp_image(job):
+    pass
 
+job_list = []
+with ProcessPoolExecutor(max_workers=8) as executor:
+    # 使用tqdm，可显示进度条，表明已完成的任务数目
+    with tqdm(total=len(job_list)) as progress:
+        futures = [executor.submit(cp_image, job) for job in job_list]
+        for future in as_completed(futures):
+            result = future.result()
+            if result is False:
+                print(result)
+            progress.update(1)
 '''
 1.yield from 可以简化for循环里的yield表达式
     def gene():
