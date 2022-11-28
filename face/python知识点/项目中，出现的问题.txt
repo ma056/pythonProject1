@@ -351,3 +351,8 @@ lst = [{'level': 19, 'star': 36, 'time': 1},
 lst.sort(key=lambda k: (k.get('time', 0)))
 方法二：
 stu_sort = sorted(lst,key=lambda x:x["level"])
+
+43.pandas 越过n行指定某行为header
+df_C78C3 = pd.DataFrame(pd.read_excel(excel_path,header = 1))       #指定第二行为头
+b = df_C78C3['Page URL'].values.tolist()
+print(df_C78C3)
