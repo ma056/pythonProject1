@@ -479,6 +479,16 @@ with ProcessPoolExecutor(max_workers=8) as executor:
             if result is False:
                 print(result)
             progress.update(1)
+# eg:
+# from concurrent import futures
+# def process_one(row):
+#     pass
+# task_df = dataframe()
+# with futures.ThreadPoolExecutor(min(16, len(task_df))) as executor:
+#     tasks = [executor.submit(process_one, row, idx=idx) for idx, row in task_df.iterrows()]
+#
+#     for future in futures.as_completed(tasks):
+#         row, is_valid, validTime, error, idx = future.result()
 '''
 1.yield from 可以简化for循环里的yield表达式
     def gene():
