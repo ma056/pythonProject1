@@ -356,3 +356,14 @@ stu_sort = sorted(lst,key=lambda x:x["level"])
 df_C78C3 = pd.DataFrame(pd.read_excel(excel_path,header = 1))       #指定第二行为头
 b = df_C78C3['Page URL'].values.tolist()
 print(df_C78C3)
+
+44.glob模块是用来查找匹配的文件的
+*     : 匹配所所有
+?     : 匹配一个字符
+*.*   : 匹配如：[hello.txt,cat.xls,xxx234s.doc]
+?.*   : 匹配如：[1.txt,h.py]
+?.gif : 匹配如：[x.gif,2.gif]
+
+import glob
+#查找路径下所有的pdf,并返回结果list
+glob.glob("C:/Users/Mawenjing/Downloads/Smaples_to_Hash_based_on_Content/*.pdf")
