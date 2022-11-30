@@ -367,3 +367,12 @@ print(df_C78C3)
 import glob
 #查找路径下所有的pdf,并返回结果list
 glob.glob("C:/Users/Mawenjing/Downloads/Smaples_to_Hash_based_on_Content/*.pdf")
+
+45.pandas求两列平均
+df['均价'] = df[['列名1','列名2']].mean(axis = 1)
+求行的平均:
+df = pd.DataFrame({
+        'A':[1,2,3,4,5]
+        'B':[12,13,14,15,16]
+},index = ['row0','row1','row2','row3','row4'])
+b = df['row2':'row3'].mean(axis = 0)
