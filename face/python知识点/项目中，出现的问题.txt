@@ -155,6 +155,7 @@ wendu 这一列数据是 3℃     5℃     8℃   dtype类型是str,目前要把
 df.loc[:, "wendu"] = df["wendu"].str.replace("℃","").astype("int32")
 
 18.列表生成式
+[x+1 for x in list1 if x>1]
 [表达式 for 迭代变量 in 可迭代对象 [if 条件表达式] ]
 等价于
 
