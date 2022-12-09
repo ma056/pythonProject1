@@ -4,6 +4,12 @@
 @File : xpath知识点.py
 @Author : wenjing
 @Date : 2022/12/7 16:01
+
+# 字母：string.ascii_letters
+
+# 大写：string.ascii_uppercase
+
+# 小写：string.ascii_lowercase
 """
 # xpath可以使用路径表达式在XML上选取节点，从而达到确认元素的目的，我们先来介绍以下语法规则。
 
