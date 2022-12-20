@@ -68,3 +68,23 @@ REPLACE INTO `test`.`person`(`name`, `age`, `sex`, `birthday`, `class`) VALUES
 ('lilissssss', 19, 's', '2001-01-02 00:00:00', 2);
 replace into 'test'.'person'('name','age','sex','birthday','class') values('lilissssss', 19, 's', '2001-01-02 00:00:00', 2)
 '''
+
+##mysql 保留两位小数
+# 1. round(x,d):用于数据的四舍五入，d可以为负数
+# eg:
+# select round(100.3456,2)    100.35
+# select round(100,2)         100
+# select round(0.6,2)         0.6
+# select round(114.6,-1)      110
+
+#2.truncate(x,d):函数返回被舍去至小数点后d位的数字x,若d的值为0，则结果不带有小数点或不带有小数部分。若d设为负数，则截去（归零）x小数点左起第d位开始后面所有低位的值。
+# eg:
+# select round(100.3456,2)    100.34
+# select round(100,2)         100
+# select round(0.6,2)         0.6
+# select round(114.6,-1)      110
+
+##DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。
+# DATE_FORMAT(date,format)
+# eg：
+# DATE_FORMAT( a.makeTime, '%Y-%m' ) AS makeTime,
