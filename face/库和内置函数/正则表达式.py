@@ -21,7 +21,7 @@ p = re.compile(r'<.*?>')
 
 # 1.1 re.compile
 # compile:re.compile是将正则表达式转换为模式对象，这样可以更有效率匹配。使用compile转换一次之后，以后每次使用模式时就不用进行转换
-# pattern：写正则表达式
+# pattern：写正则表达式.*?
 # flags：匹配模式
 # 从compile()函数的定义中，可以看出返回的是一个匹配对象，它单独使用就没有任何意义，需要和findall(), search(), match(）搭配使用。compile()与findall()一起使用，返回一个列表。eg：
 # eg:

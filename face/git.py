@@ -26,6 +26,7 @@ git add .
         3.3输入":wq",注意是冒号+wq,按回车键即可
     第二种方法：
         git commit -m "commit message here"
+        git commit -m "update"
 5.push文件
 git push
 6.输出git生成的密码
