@@ -36,7 +36,7 @@ driver.find_elements(By.LINK_TEXT, "下一页")
 close_btn = driver.find_elements(By.CSS_SELECTOR, ".guide-con .guide-close")
 close_btn.click()
 #在进行其他点击操作
-XXX.click()
+# XXX.click()
 
 
 # 3.内容获取
