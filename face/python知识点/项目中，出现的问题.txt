@@ -377,3 +377,21 @@ df = pd.DataFrame({
         'B':[12,13,14,15,16]
 },index = ['row0','row1','row2','row3','row4'])
 b = df['row2':'row3'].mean(axis = 0)
+
+46.读写jsonl
+jsonl文件的每一行都是一个json str，读取的时候可以直接import jsonlines包，具体示例如下：
+读取：
+import jsonlines
+with open(filename,'r+', encoding='utf-8') as f:
+	for item in jsonlines.Reader(f): # 每一行读取后都是一个json，可以按照key去取对应的值
+		a = item['a']
+		b = item['b']
+
+写入：
+import jsonlines
+with jsonlines.open('data.jsonl', mode='w') as writer:
+    writer.write({'a':5})
+    writer.write({'a':6})
+    writer.write({'a':7})
+
+
