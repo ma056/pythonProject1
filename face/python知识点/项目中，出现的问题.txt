@@ -407,7 +407,7 @@ Python3使运行暂停的方法
 1、input();
     这种方法不用包含模块，因此这也是最常用的一种暂停手段。
     Python3中已经被合并到input()中。
-2、os.system("pause");
+2、os.system("pause");   注：会出来一行中文，点击xx继续xx
     这种方法需要包含os模块（import os），在windows下IDLE运行会弹出cmd命令行，
     进行暂停操作，直接运行.py文件会直接在命令行中暂停。
 3、time.sleep("second");
