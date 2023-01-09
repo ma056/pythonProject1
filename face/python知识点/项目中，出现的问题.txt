@@ -394,4 +394,25 @@ with jsonlines.open('data.jsonl', mode='w') as writer:
     writer.write({'a':6})
     writer.write({'a':7})
 
+47.python打包exe
+1.安装Pyinstaller
+    pip install pyinstaller
+2.在打开cmd，cd到我们要打包的文件路径
+3.执行命令Pyinstaller -F xxx.py
+4.在dist中有我们刚刚打包好的exe文件
+
+
+48.exe运行完成后会自动退出解决方案：
+Python3使运行暂停的方法
+1、input();
+    这种方法不用包含模块，因此这也是最常用的一种暂停手段。
+    Python3中已经被合并到input()中。
+2、os.system("pause");
+    这种方法需要包含os模块（import os），在windows下IDLE运行会弹出cmd命令行，
+    进行暂停操作，直接运行.py文件会直接在命令行中暂停。
+3、time.sleep("second");
+    这种方法需要包含time模块（import time），second是自定义的时间长短，根据实际情况，
+    可能会发生上下浮动。
+
+
 
