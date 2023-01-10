@@ -44,7 +44,7 @@ class MysqlDB(object):
             port=3306,
             user='root',
             password='123456',
-            database='textrobot2',
+            database='homework',
             charset='utf8'
         )
 
