@@ -1,7 +1,7 @@
 # -- coding: utf-8 --
 """
 @Project : pythonProject1
-@File : 1.py
+@File : wordcount_summary_view.py
 @Author : wenjing
 @Date : 2022/12/1 9:30
 """
