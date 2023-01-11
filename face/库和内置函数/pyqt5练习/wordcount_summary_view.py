@@ -44,18 +44,18 @@ class MyMainWindow(QMainWindow):
     def read(self):
         # 数据库连接对象
         conn = pymysql.connect(
-            # host="localhost",
-            # port=3306,
-            # user="root",
-            # passwd="123123",
-            # database="homework",
-            # charset='utf8'
-            host="engserver.westus.cloudapp.azure.com",
+            host="localhost",
             port=3306,
-            user="bi_report",
-            password="pass@123",
-            database="helios",
-            charset='utf8',
+            user="root",
+            passwd="123123",
+            database="homework",
+            charset='utf8'
+            # host="engserver.westus.cloudapp.azure.com",
+            # port=3306,
+            # user="bi_report",
+            # password="pass@123",
+            # database="helios",
+            # charset='utf8',
         )
         # 游标对象
         cur = conn.cursor()
