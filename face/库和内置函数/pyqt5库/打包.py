@@ -5,6 +5,7 @@
 @Author : wenjing
 @Date : 2023/1/11 10:31
 """
+# windows系统打包只能打包成exe文件，mac可以打包成app
 # 包含.ui文件的软件打包
 
 # 1.首先使用QtDesigner设计一个界面，生成xxx.ui文件，
